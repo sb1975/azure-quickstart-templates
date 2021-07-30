@@ -10,7 +10,7 @@ pool:
 steps:
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '101-webapp-linux-managed-mysql'
+    SourceFolder: 'microsoft.web/webapp-linux-managed-mysql'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: AzureResourceManagerTemplateDeployment@3
@@ -19,8 +19,8 @@ steps:
     azureResourceManagerConnection: 'Azure Pass - Sponsorship-13July(90005c67-7555-493b-ba11-a38de0084ce6)'
     subscriptionId: '90005c67-7555-493b-ba11-a38de0084ce6'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'ARMPipelinesLAMP-rg'
-    location: 'Central US'
+    resourceGroupName: 'AzARMTemplateDeployment'
+    location: 'East US'
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
